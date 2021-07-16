@@ -44,3 +44,10 @@ def school_images(request):
   except ObjectDoesNotExist:
     raise Http404()
   return render(request, 'image_location.html', {'images':images})
+
+def nairobi_images(request):
+  try:
+    images = Image.objects.filter(location =3)
+  except ObjectDoesNotExist:
+    raise Http404()
+  return render(request, 'image_location.html', {'images':images})

@@ -10,6 +10,24 @@ class Location(models.Model):
 class Category(models.Model):
   name = models.CharField(max_length =100)
 
+  def save_category(self):
+    self.save()
+
+  def deleting_category(self):
+    self.delete()
+
+  def updating_category(self, update):
+    self.name = update
+    self.save()
+
+  @classmethod
+  def find_category(cls, id):
+    category_id = Category.objects.get(pk = id)
+    return category_id
+
+  def __str__(self):
+    return self.name
+
 class Image(models.Model):
   name = models.CharField(max_length=60)
   description = models.TextField()

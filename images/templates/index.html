@@ -6,8 +6,12 @@
     <div class="row">
         <div class="col-md-10">
             {% for image in images %}
-            <div class="col-md-3 col-sm-6">
-                <a data-toggle="modal" data-target="#{{image.id}}"><img src="{{image.image.url}}" alt="Image"></a>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <a data-toggle="modal" data-target="#{{image.id}}"><img src="{{image.image.url}}" style="width: 100%; margin-bottom: 10px;" alt="Image"></a>
+                </div>
+                <div class="col-md-3"></div>
             </div>
             {% endfor %}
         </div>
@@ -31,7 +35,7 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="">
-                        <img src="{{image.image.url}}" alt="Image">
+                        <img src="{{image.image.url}}" style="width: 100%;" alt="Image">
                     </div>
                 </div>
             </div>

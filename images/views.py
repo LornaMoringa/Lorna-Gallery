@@ -21,3 +21,12 @@ def search_images(request):
   else:
     message = 'You have not searched for any term'
     return render(request, 'search.html', {"message":message})
+
+def image_details(request,image_id):
+  locations = Location.objects.all()
+
+  try:
+    image = get_object_or_404(Image, pk =image_id)
+  except ObjectDoesNotExist:
+    raise Http404()
+  return render(request, 'image_details.html', {'image':image,"locations":locations})

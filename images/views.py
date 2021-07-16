@@ -30,3 +30,10 @@ def image_details(request,image_id):
   except ObjectDoesNotExist:
     raise Http404()
   return render(request, 'image_details.html', {'image':image,"locations":locations})
+
+def kericho_images(request):
+  try:
+    images = Image.objects.filter(location =1)
+  except ObjectDoesNotExist:
+    raise Http404()
+  return render(request, 'image_location.html', {'images':images})

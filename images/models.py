@@ -7,6 +7,24 @@ from cloudinary.models import CloudinaryField
 class Location(models.Model):
   name = models.CharField(max_length =100)
 
+  def save_location(self):
+    self.save()
+
+  def deleting_location(self):
+      self.delete()
+
+  def updating_location(self, update):
+    self.name = update
+    self.save()
+
+  @classmethod
+  def getting_location(cls, id):
+    location_id = Location.objects.get(pk = id)
+    return location_id
+
+  def __str__(self):
+    return self.name
+
 class Category(models.Model):
   name = models.CharField(max_length =100)
 
